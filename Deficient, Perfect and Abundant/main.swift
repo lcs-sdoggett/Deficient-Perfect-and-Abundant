@@ -11,7 +11,8 @@ import Foundation
 var properDivisors: [Int] = []
 let inputGiven: Int
 var integer = 0
-
+var sumOfProperDivisors = 0
+var value = 0
 
 
 // Loop over until a valid input
@@ -36,7 +37,7 @@ while true {
     }
 
     // Check that integer is in desired range
-    guard inputAsInt > 0, inputAsInt < 32_500 else {
+    guard inputAsInt > 0, inputAsInt < 32500 else {
         
         // Let user know of their mistake
         print("Make sure your integer is more then 0 and less then 32,000.")
@@ -57,11 +58,19 @@ for divisor in 1...integer {
     let remainder = integer % divisor
     
     if remainder == 0 {
-        properDivisors.append(remainder)
+        properDivisors.append(divisor)
     }
 }
 
 for value in properDivisors {
-    
+
+    sumOfProperDivisors += value
 }
 
+if value < integer {
+    print("\(integer) is a deficient number")
+} else if value == integer {
+    print("\(integer) is a perfect number")
+} else if value > integer {
+    print("\(integer) is a abundant number")
+}
