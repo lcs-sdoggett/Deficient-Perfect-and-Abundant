@@ -53,7 +53,7 @@ while true {
     
 }
 
-for divisor in 1...integer {
+for divisor in 1...integer-1 {
     
     let remainder = integer % divisor
     
@@ -67,10 +67,10 @@ for value in properDivisors {
     sumOfProperDivisors += value
 }
 
-if value < integer {
+if sumOfProperDivisors < integer {
     print("\(integer) is a deficient number")
-} else if value == integer {
+} else if sumOfProperDivisors == integer {
     print("\(integer) is a perfect number")
-} else if value > integer {
+} else if sumOfProperDivisors > integer {
     print("\(integer) is a abundant number")
 }
