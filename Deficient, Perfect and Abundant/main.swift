@@ -35,12 +35,12 @@ while true {
         continue
         
     }
-
+    
     // Check that integer is in desired range
-    guard inputAsInt > 0, inputAsInt < 32500 else {
+    guard inputAsInt > 0, inputAsInt <= 32500 else {
         
         // Let user know of their mistake
-        print("Make sure your integer is more then 0 and less then 32,000.")
+        print("Make sure your integer is more then 0 and less then 32,500.")
         
         // Integer not in desired range, return to top and ask again
         continue
@@ -53,24 +53,29 @@ while true {
     
 }
 
-for divisor in 1...integer-1 {
+if integer == 1 {
+    print("1 is a deficient number")
+} else {
     
-    let remainder = integer % divisor
-    
-    if remainder == 0 {
-        properDivisors.append(divisor)
+    for divisor in 1...integer-1 {
+        
+        let remainder = integer % divisor
+        
+        if remainder == 0 {
+            properDivisors.append(divisor)
+        }
     }
-}
-
-for value in properDivisors {
-
-    sumOfProperDivisors += value
-}
-
-if sumOfProperDivisors < integer {
-    print("\(integer) is a deficient number")
-} else if sumOfProperDivisors == integer {
-    print("\(integer) is a perfect number")
-} else if sumOfProperDivisors > integer {
-    print("\(integer) is a abundant number")
+    
+    for value in properDivisors {
+        
+        sumOfProperDivisors += value
+    }
+    
+    if sumOfProperDivisors < integer {
+        print("\(integer) is a deficient number")
+    } else if sumOfProperDivisors == integer {
+        print("\(integer) is a perfect number")
+    } else if sumOfProperDivisors > integer {
+        print("\(integer) is a abundant number")
+    }
 }
